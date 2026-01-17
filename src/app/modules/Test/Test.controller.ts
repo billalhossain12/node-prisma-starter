@@ -66,8 +66,5 @@ export const TestControllers = {
   getAllTests,
   getSingleTest,
   updateTest,
-  deleteTest
+  deleteTest,
 };
-
-
-

@@ -3,10 +3,15 @@ import AppError from '../../errors/AppError';
 import { prisma } from '../../lib/prisma';
 import { ITest } from './Test.interface';
 
+interface ITestUpdate {
+  title?: string;
+  content?: string;
+}
+
 const createTestIntoDB = async (payload: ITest) => {
   const data = await prisma.test.create({
-    data: payload
-  })
+    data: payload,
+  });
   return data;
 };
 
@@ -20,25 +25,25 @@ const getSingleTestFromDB = async (id: number) => {
   return data;
 };
 
-const updateTestIntoDB = async (id: number, payload: any) => {
-  // check if test exist 
+const updateTestIntoDB = async (id: number, payload: ITestUpdate) => {
+  // check if test exist
   const isExist = await prisma.test.findUnique({ where: { id } });
   if (!isExist) {
-    throw new AppError(httpStatus.NOT_FOUND, "This test not found!");
+    throw new AppError(httpStatus.NOT_FOUND, 'This test not found!');
   }
 
   const data = await prisma.test.update({
     where: { id },
-    data: payload
+    data: payload,
   });
   return data;
 };
 
 const deleteTestFromDB = async (id: number) => {
-  // check if test exist 
+  // check if test exist
   const isExist = await prisma.test.findUnique({ where: { id } });
   if (!isExist) {
-    throw new AppError(httpStatus.NOT_FOUND, "This test not found!");
+    throw new AppError(httpStatus.NOT_FOUND, 'This test not found!');
   }
 
   const data = await prisma.test.delete({ where: { id } });
@@ -50,5 +55,5 @@ export const TestServices = {
   getAllTestsFromDB,
   getSingleTestFromDB,
   updateTestIntoDB,
-  deleteTestFromDB
+  deleteTestFromDB,
 };

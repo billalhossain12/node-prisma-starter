@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { Prisma } from '../generated/prisma/client';
@@ -32,9 +34,6 @@ const globalErrorHandler = (
   } else if (err instanceof JsonWebTokenError) {
     statusCode = 401;
     message = 'Invalid token';
-  } else if (err instanceof AppError) {
-    statusCode = err?.statusCode;
-    message = err.message;
   } else if (err instanceof Error) {
     message = err.message;
   }
