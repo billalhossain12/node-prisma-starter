@@ -1,0 +1,5 @@
+# 1️⃣ Generate Prisma Client (MUST DO after EVERY schema change)
+npx prisma generate
+
+# 2️⃣ Create & apply migration
+npx prisma migrate dev --name "add_user_model"

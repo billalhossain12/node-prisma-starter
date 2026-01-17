@@ -170,7 +170,7 @@ export type TestGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type TestGroupByOutputType = {
   id: number
   title: string
-  content: string | null
+  content: string
   _count: TestCountAggregateOutputType | null
   _avg: TestAvgAggregateOutputType | null
   _sum: TestSumAggregateOutputType | null
@@ -199,13 +199,13 @@ export type TestWhereInput = {
   NOT?: Prisma.TestWhereInput | Prisma.TestWhereInput[]
   id?: Prisma.IntFilter<"Test"> | number
   title?: Prisma.StringFilter<"Test"> | string
-  content?: Prisma.StringNullableFilter<"Test"> | string | null
+  content?: Prisma.StringFilter<"Test"> | string
 }
 
 export type TestOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  content?: Prisma.SortOrderInput | Prisma.SortOrder
+  content?: Prisma.SortOrder
 }
 
 export type TestWhereUniqueInput = Prisma.AtLeast<{
@@ -214,13 +214,13 @@ export type TestWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.TestWhereInput[]
   NOT?: Prisma.TestWhereInput | Prisma.TestWhereInput[]
   title?: Prisma.StringFilter<"Test"> | string
-  content?: Prisma.StringNullableFilter<"Test"> | string | null
+  content?: Prisma.StringFilter<"Test"> | string
 }, "id">
 
 export type TestOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  content?: Prisma.SortOrderInput | Prisma.SortOrder
+  content?: Prisma.SortOrder
   _count?: Prisma.TestCountOrderByAggregateInput
   _avg?: Prisma.TestAvgOrderByAggregateInput
   _max?: Prisma.TestMaxOrderByAggregateInput
@@ -234,46 +234,46 @@ export type TestScalarWhereWithAggregatesInput = {
   NOT?: Prisma.TestScalarWhereWithAggregatesInput | Prisma.TestScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Test"> | number
   title?: Prisma.StringWithAggregatesFilter<"Test"> | string
-  content?: Prisma.StringNullableWithAggregatesFilter<"Test"> | string | null
+  content?: Prisma.StringWithAggregatesFilter<"Test"> | string
 }
 
 export type TestCreateInput = {
   title: string
-  content?: string | null
+  content: string
 }
 
 export type TestUncheckedCreateInput = {
   id?: number
   title: string
-  content?: string | null
+  content: string
 }
 
 export type TestUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TestUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TestCreateManyInput = {
   id?: number
   title: string
-  content?: string | null
+  content: string
 }
 
 export type TestUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TestUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  content?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TestCountOrderByAggregateInput = {
@@ -300,22 +300,6 @@ export type TestMinOrderByAggregateInput = {
 
 export type TestSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-}
-
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 
@@ -352,7 +336,7 @@ export type $TestPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     title: string
-    content: string | null
+    content: string
   }, ExtArgs["result"]["test"]>
   composites: {}
 }
